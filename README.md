@@ -30,5 +30,4 @@ skaffold run
         Book service ->> Account service: pay for event
         Account service ->> Book service: successfully paid
         Book service ->> Book service: modify book status to complete
-        end
 ```
