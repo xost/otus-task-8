@@ -32,6 +32,20 @@ skaffold run
         Account service ->> Book service: successfully paid
         Book service ->> Book service: modify book status to complete
         end
+        alt occupy failed
+        Book service ->> Event service: occupy slot
+        Event service ->> Book service: failed occupy
+        Book service ->> Book service: modify book status to canceled
+        end
+        alt payment failed
+        Book service ->> Event service: occupy slot
+        Event service ->> Book service: successfully occupied
+        Book service ->> Account service: pay for event
+        Account service ->> Book service: payment failed
+        Book service ->> Event service: cancel occupy slot
+        Book service ->> Book service: modify book status to cancel
+        end
+
 ```
 
 
