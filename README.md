@@ -24,12 +24,11 @@ skaffold run
 ```mermaid
 %% успешная регистрация на мероприятие
     sequenceDiagram
-        User ->> Book serice: register request
+        User ->> Book service: register request
         Book service ->> Event service: occupy slot
-        Event service ->> Book sevice: successfully occupied
+        Event service ->> Book service: successfully occupied
         Book service ->> Account service: pay for event
-        Account srvice ->> Book service: successfully paid
+        Account service ->> Book service: successfully paid
         Book service ->> Book service: modify book status to complete
-    end
-
+        end
 ```
